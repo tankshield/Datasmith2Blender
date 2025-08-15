@@ -13,7 +13,6 @@ bl_info = {
 	"wiki_url": "https://github.com/0xafbf/blender-datasmith-export",
 }
 
-
 if "bpy" in locals():
 	import importlib
 	if "export_datasmith" in locals():
@@ -41,7 +40,6 @@ class ExportDatasmith(bpy.types.Operator, ExportHelper):
 
 	filename_ext = ".udatasmith"
 	filter_glob: StringProperty(default="*.udatasmith", options={'HIDDEN'})
-
 
 	export_selected: BoolProperty(
 			name="Selected objects only",
@@ -119,7 +117,6 @@ def register():
 def unregister():
 	bpy.types.TOPBAR_MT_file_export.remove(menu_func_export)
 	bpy.utils.unregister_class(ExportDatasmith)
-
 
 if __name__ == "__main__":
 	register()

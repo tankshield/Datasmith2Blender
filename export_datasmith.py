@@ -1615,7 +1615,7 @@ def collect_object(
 		n['name'] = name_override
 	log.debug("reading object:%s" % bl_obj.name)
 
-	n['layer'] = bl_obj.users_collection[0].name_full
+	n['layer'] = bl_obj.users_collection[0].name
 
 
 	child_nodes = []
@@ -1690,7 +1690,7 @@ def collect_object(
 
 	if len(child_nodes) > 0:
 		children_node = Node("children");
-		# strange, this visibility flag is read from the "children" node. . . 
+		# strange, this visibility flag is read from the "children" node. . .  .
 		children_node["visible"] = not bl_obj.hide_render
 		for child in child_nodes:
 			if child:
@@ -1989,9 +1989,9 @@ def collect_object_metadata(obj_name, obj_type, obj):
 			out_value = str(out_value)
 
 		if out_type == "String":
-			out_value = out_value.replace("<", "&lt;")
-			out_value = out_value.replace(">", "&gt;")
-			out_value = out_value.replace('"', "&quot;")
+			out_value = out_value.replace("<", "<")
+			out_value = out_value.replace(">", ">")
+			out_value = out_value.replace('"', '"')
 
 		kvp = Node("KeyValueProperty", {"name": prop_name, "val": out_value, "type": out_type } )
 		metadata.push(kvp)
@@ -2326,18 +2326,14 @@ def collect_and_save(context, args, save_path):
 			anims_strings.append(result)
 
 		if anims_strings:
-			output = ["""
-			{
-		"version": "0.1",
-		"fps": """,
-			str(context.scene.render.fps),
-		""",
-		"animations": [""",
-				",".join(anims_strings),
-				"]}"
-			]
-
-			output_text = "".join(output)
+			output_text = (
+				"{\n"
+				'\t\t"version": "0.1",\n'
+				'\t\t"fps": ' + str(context.scene.render.fps) + ',\n'
+				'\t\t"animations": [\n'
+				+ ",".join(anims_strings) + '\n'
+				']}\n'
+			)
 			anims.append(output_text)
 
 		# cleanup
