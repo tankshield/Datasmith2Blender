@@ -1,0 +1,3 @@
+- [ ] Read the file 'export_datasmith.py' to find where 'calc_normals' is used
+- [ ] Update the usage of 'calc_normals' to use 'flip_normals' or another appropriate method
+- [ ] Test the updated plugin with Blender 4.5 and Unreal Engine 5.6
