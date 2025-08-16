@@ -28,3 +28,5 @@ This plugin has been tested with Blender 4.5 and Unreal Engine 5.6. If you encou
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## For more details refer to the original project here https://github.com/0xafbf/blender-datasmith-export
