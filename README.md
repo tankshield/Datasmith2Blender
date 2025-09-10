@@ -25,9 +25,5 @@ This is a fork of the original [Blender Datasmith Export Plugin](https://github.
 
 This plugin has been tested with Blender 4.5 and Unreal Engine 5.6. If you encounter any issues, please report them on the [issues page](https://github.com/tankshield/Datasmith2Blender/issues).
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## For more details 
 refer to the original project here https://github.com/0xafbf/blender-datasmith-export
